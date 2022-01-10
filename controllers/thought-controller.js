@@ -106,7 +106,7 @@ const thoughtController = {
             Thought.findOneAndUpdate(
                 { _id: params.thoughtId },
                 { $pull: { reactions: { reactionId: params.reactionId }}},
-                { new: true })
+                { new: true})
             .then(thoughtData => res.json(thoughtData))
             .catch(err => res.status(400).json(err));  
         }

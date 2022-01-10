@@ -38,7 +38,7 @@ const userController = {
                 res.status(404).json({ message: 'No user found!'});
                 return;
             }
-            res.json(dbUserData)
+            res.json(userData)
         })
         .catch(err => {
             console.log(err)
@@ -60,7 +60,7 @@ const userController = {
     updateUser({ params, body }, res) {
         User.findOneAndUpdate({ _id: params.id}, body, { new: true, runValidators: true })
         .then(userData => {
-            if (!dbUserData) {
+            if (!userData) {
                 res.status(404).json({ message: 'No user found!'});
                 return;
             }
